@@ -22,11 +22,13 @@ public class BancoDados {// TODO fazer um caminho geral
 	 * "D:\\faculGabriel\\2°semestre\\Orientação_Objeto\\trabalho_OO\\";
 	 */
 	static final Listas listas = new Listas();
+	 
 
+	/* static final String PATH_BD = "C:\\Temp\\trabalho_OO\\bin\\"; */
 	static final String PATH_BD = "C:\\Users\\Gabriel\\eclipse-workspace\\trabalho_OO\\bin\\Persistencia\\";
 
 	// endereço com barra invertada;
-
+		
     
 	
 	
@@ -69,7 +71,7 @@ public class BancoDados {// TODO fazer um caminho geral
 			
 			
 			oss.close();
-			System.out.println("objeto serializado com sucesso");
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

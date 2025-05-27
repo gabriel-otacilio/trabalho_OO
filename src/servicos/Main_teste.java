@@ -11,13 +11,12 @@ public class Main_teste {
 
 	public static void main(String[] args) {
 		
-		
+		System.out.println(BancoDados.getListas().getDisciplinaGeral());
 		
 		BancoDados bd = new BancoDados();
-		AlunoDao a = new AlunoDao();
-		a.listarLista(bd.getListas().getAlunosGeral());
-		
-		
+
+
+
 		Menus menu = new Menus();
 
 		
