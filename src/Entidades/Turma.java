@@ -2,25 +2,23 @@ package entidades;
 
 //import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.io.Serializable;
 
-public class Turma implements Serializable {
+public class Turma extends Entidade {
 	private static final long serialVerionUID = 1L;
 
-	private String disciplina;
+	private Integer codigoDaDisciplina;
+	private Disciplina disciplina;
 	private String professor;
-	private double semestre;
+	private String semestre;
 	private boolean presencial;
 	private String sala;
-	private double horario;
+	private String horario;
 	private int capMaxAluno;
-	private HashMap<Long, Aluno> alunos;// criando um atributo que receba a lista de alunos. -> vou precisar
-													// de um metodo pra adicionar alunos em turmas, DAOTurma???
+	private HashMap<Integer, Aluno> alunosPorTurma;// criando um atributo que receba a lista de alunos. -> vou precisar
 
-	public Turma(String disciplina, String professor, double semestre, boolean presencial, String sala, double horario,
-			int capMaxAluno) {
-		super();
+	public Turma(Integer codigoDaDisciplina, Disciplina disciplina, String professor, String semestre, boolean presencial,
+			String sala, String horario, int capMaxAluno, HashMap<Integer, Aluno> alunosPorTurma) {
+		this.codigoDaDisciplina = codigoDaDisciplina;
 		this.disciplina = disciplina;
 		this.professor = professor;
 		this.semestre = semestre;
@@ -28,17 +26,18 @@ public class Turma implements Serializable {
 		this.sala = sala;
 		this.horario = horario;
 		this.capMaxAluno = capMaxAluno;
+		this.alunosPorTurma = alunosPorTurma;
 	}
-	
-	public HashMap<Long, Aluno> getAlunos() {
-		return alunos;
+
+	public HashMap<Integer, Aluno> getAlunosPorTurma() {
+		return alunosPorTurma;
 	}
-	
-	public String getDisciplina() {
+
+	public Disciplina getDisciplina() {
 		return disciplina;
 	}
 
-	public void setDisciplina(String disciplina) {
+	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
 
@@ -50,11 +49,11 @@ public class Turma implements Serializable {
 		this.professor = professor;
 	}
 
-	public double getSemestre() {
+	public String getSemestre() {
 		return semestre;
 	}
 
-	public void setSemestre(double semestre) {
+	public void setSemestre(String semestre) {
 		this.semestre = semestre;
 	}
 
@@ -74,11 +73,11 @@ public class Turma implements Serializable {
 		this.sala = sala;
 	}
 
-	public double getHorario() {
+	public String getHorario() {
 		return horario;
 	}
 
-	public void setHorario(double horario) {
+	public void setHorario(String horario) {
 		this.horario = horario;
 	}
 
@@ -88,6 +87,23 @@ public class Turma implements Serializable {
 
 	public void setCapMaxAluno(int capMaxAluno) {
 		this.capMaxAluno = capMaxAluno;
+	}
+
+	public static long getSerialverionuid() {
+		return serialVerionUID;
+	}
+
+	public Integer getCodigoDaDisciplina() {
+		return codigoDaDisciplina;
+	}
+
+	public void setNumeroDaTurma(int numeroDaTurma) {
+		this.codigoDaDisciplina = numeroDaTurma;
+	}
+
+	// será se vou precisar mesmo desse metodo?
+	public void setAlunosPorTurma(HashMap<Integer, Aluno> alunosPorTurma) {
+		this.alunosPorTurma = alunosPorTurma;
 	}
 
 }

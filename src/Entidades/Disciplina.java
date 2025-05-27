@@ -1,31 +1,31 @@
 package entidades;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.io.Serializable;
 
-public class Disciplina implements Serializable {
+public class Disciplina extends Entidade {
 	private static final long serialVerionUID = 1L;
 
-	private int codigo;
+	private String nomeDisciplina;
+	private String codigo;
 	private int horas;
-	private String[] preRequisitos;
-	private HashMap<Long, Turma> turmas;// como eu crio um metodo pra adicionar turmas nessa lista???
-															// DAO???
+	private HashMap<String,Disciplina> preRequisitos;
+	private HashMap<Integer, Turma> turmasPorDisciplinas;
+	// como inicializar essa lista sem criar uma Disciplina ?
 
-	public Disciplina(int codigo, int horas, String[] preRequisitos) {
-		super();
+	public Disciplina(String nomeDisciplina, String codigo, int horas, HashMap<String,Disciplina> preRequisitos,
+			HashMap<Integer, Turma> turmasPorDisciplinas) {
+		this.nomeDisciplina = nomeDisciplina;
 		this.codigo = codigo;
 		this.horas = horas;
 		this.preRequisitos = preRequisitos;
+		this.turmasPorDisciplinas = turmasPorDisciplinas;
 	}
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
@@ -37,12 +37,32 @@ public class Disciplina implements Serializable {
 		this.horas = horas;
 	}
 
-	public String[] getPreRequisitos() {
+	public HashMap<String,Disciplina> getPreRequisitos() {
 		return preRequisitos;
 	}
 
-	public void setPreRequisitos(String[] preRequisitos) {
+	public void setPreRequisitos(HashMap<String,Disciplina> preRequisitos) {
 		this.preRequisitos = preRequisitos;
+	}
+
+	public static long getSerialverionuid() {
+		return serialVerionUID;
+	}
+
+	public String getNomeDisciplina() {
+		return nomeDisciplina;
+	}
+
+	public void setNomeDisciplina(String nomeDisciplina) {
+		this.nomeDisciplina = nomeDisciplina;
+	}
+
+	public HashMap<Integer, Turma> getTurmasPorDisciplinas() {
+		return turmasPorDisciplinas;
+	}
+
+	public void setTurmasPorDisciplinas(HashMap<Integer, Turma> turmasPorDisciplinas) {
+		this.turmasPorDisciplinas = turmasPorDisciplinas;
 	}
 
 }
